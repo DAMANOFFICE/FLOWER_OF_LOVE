@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Happy New Year Lipsy ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -13,181 +13,171 @@
   padding:0;
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body{
   min-height:100vh;
-  background:linear-gradient(120deg,#ffd1dc,#ffe6f0);
+  background:linear-gradient(160deg,#ffd1dc,#ffe6f0);
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
+  overflow-x:hidden;
 }
 
 .container{
+  width:100%;
+  max-width:420px;
+  padding:16px;
   text-align:center;
-  padding:20px;
-  animation:fadeIn 1.5s ease;
+  animation:fadeIn 1.2s ease;
 }
 
 h1{
   font-family:'Pacifico',cursive;
-  font-size:2.8rem;
+  font-size:2.2rem;
   color:#ff4f8b;
 }
 
 .name{
-  font-size:2.2rem;
+  font-size:1.8rem;
   font-weight:600;
   color:#333;
-  margin:10px 0 20px;
+  margin:6px 0 14px;
 }
 
 /* 🐼 Hug Animation */
 .hug-container{
   position:relative;
-  height:120px;
-  margin-bottom:30px;
+  height:90px;
+  margin-bottom:20px;
 }
 
 .panda-left,
 .panda-right{
   position:absolute;
-  font-size:80px;
-  top:20px;
+  font-size:60px;
+  top:10px;
   animation:3s ease-in-out infinite;
 }
 
-.panda-left{
-  left:0;
-  animation-name:leftHug;
-}
-
-.panda-right{
-  right:0;
-  animation-name:rightHug;
-}
+.panda-left{ left:0; animation-name:leftHug; }
+.panda-right{ right:0; animation-name:rightHug; }
 
 .heart-hug{
   position:absolute;
   left:50%;
-  top:40px;
+  top:30px;
   transform:translateX(-50%);
-  font-size:28px;
+  font-size:22px;
   opacity:0;
   animation:heartPop 3s infinite;
 }
 
 @keyframes leftHug{
   0%,100%{transform:translateX(0);}
-  50%{transform:translateX(90px);}
+  50%{transform:translateX(70px);}
 }
-
 @keyframes rightHug{
   0%,100%{transform:translateX(0);}
-  50%{transform:translateX(-90px);}
+  50%{transform:translateX(-70px);}
 }
-
 @keyframes heartPop{
   0%,100%{opacity:0;transform:translate(-50%,0) scale(0.5);}
-  50%{opacity:1;transform:translate(-50%,-10px) scale(1.2);}
+  50%{opacity:1;transform:translate(-50%,-8px) scale(1.2);}
 }
 
 /* Cards */
 .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  max-width:720px;
-  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
 .card{
   background:#fff;
-  border-radius:22px;
-  padding:22px;
+  border-radius:20px;
+  padding:18px;
   cursor:pointer;
-  box-shadow:0 12px 30px rgba(0,0,0,0.12);
-  transition:0.3s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+  transition:0.25s ease;
 }
 
-.card:hover{
-  transform:translateY(-8px) scale(1.04);
+.card:active{
+  transform:scale(0.97);
 }
 
 .panda{
-  font-size:70px;
+  font-size:56px;
 }
 
 .tap{
-  font-size:0.9rem;
+  font-size:0.85rem;
   color:#777;
-  margin-top:10px;
+  margin-top:6px;
 }
 
 .wish{
   display:none;
-  margin-top:15px;
-  font-size:1rem;
+  margin-top:12px;
+  font-size:0.95rem;
   color:#444;
-  animation:openCard 0.6s ease;
+  line-height:1.5;
+  animation:openCard 0.4s ease;
 }
 
 .card.open .wish{display:block;}
 .card.open .tap{display:none;}
 
 @keyframes openCard{
-  from{opacity:0;transform:translateY(10px);}
+  from{opacity:0;transform:translateY(8px);}
   to{opacity:1;transform:translateY(0);}
 }
 
 /* 💌 Popup */
 .popup{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
+  inset:0;
+  background:rgba(0,0,0,0.55);
   display:none;
   justify-content:center;
   align-items:center;
-  z-index:10;
+  z-index:20;
 }
 
 .popup-content{
+  width:85%;
   background:#fff;
-  padding:30px;
-  border-radius:25px;
+  padding:24px;
+  border-radius:22px;
   text-align:center;
-  animation:pop 0.5s ease;
+  animation:pop 0.4s ease;
 }
 
 .popup-content h2{
   font-family:'Pacifico',cursive;
   color:#ff4f8b;
-  font-size:2.2rem;
+  font-size:2rem;
 }
 
 .popup-content p{
-  margin-top:10px;
-  font-size:1.1rem;
+  margin-top:8px;
+  font-size:1rem;
   color:#555;
 }
 
 .popup-content button{
-  margin-top:20px;
-  padding:10px 25px;
+  margin-top:16px;
+  padding:10px 24px;
   border:none;
-  border-radius:25px;
+  border-radius:24px;
   background:#ff4f8b;
   color:#fff;
   font-size:1rem;
-  cursor:pointer;
 }
 
 @keyframes pop{
-  from{transform:scale(0.5);opacity:0;}
+  from{transform:scale(0.6);opacity:0;}
   to{transform:scale(1);opacity:1;}
 }
 
@@ -195,19 +185,18 @@ h1{
 .heart{
   position:fixed;
   bottom:-20px;
-  font-size:20px;
+  font-size:18px;
   animation:floatUp 6s linear infinite;
-  opacity:0.8;
 }
 
 @keyframes floatUp{
   0%{transform:translateY(0) scale(0.6);opacity:0;}
   30%{opacity:1;}
-  100%{transform:translateY(-120vh) scale(1.2);opacity:0;}
+  100%{transform:translateY(-120vh) scale(1.1);opacity:0;}
 }
 
 @keyframes fadeIn{
-  from{opacity:0;transform:translateY(30px);}
+  from{opacity:0;transform:translateY(20px);}
   to{opacity:1;transform:translateY(0);}
 }
 </style>
@@ -231,7 +220,7 @@ h1{
       <div class="panda">🐼🎀</div>
       <div class="tap">Tap me 💕</div>
       <div class="wish">
-        Dear Lipsy,  
+        Dear Lipsy,<br>
         may this New Year bring you endless smiles 🌸
       </div>
     </div>
@@ -240,23 +229,20 @@ h1{
       <div class="panda">🐼✨</div>
       <div class="tap">Tap me 💕</div>
       <div class="wish">
-        I hope happiness follows you everywhere 💫  
+        I hope happiness follows you everywhere 💫<br>
         You truly deserve it ❤️
       </div>
     </div>
 
-    <!-- FINAL CARD -->
     <div class="card" onclick="showLove(this)">
       <div class="panda">🐼❤️</div>
       <div class="tap">Tap me 💕</div>
-      <div class="wish">
-        One last thing… tap again 💌
-      </div>
+      <div class="wish">One last thing… tap again 💌</div>
     </div>
   </div>
 </div>
 
-<!-- 💌 Love Popup -->
+<!-- Love Popup -->
 <div class="popup" id="lovePopup">
   <div class="popup-content">
     <h2>I love you, Lipsy ❤️</h2>
@@ -270,18 +256,18 @@ function toggleCard(card){
   card.classList.toggle("open");
 }
 
-let finalOpened = false;
+let finalOpened=false;
 function showLove(card){
   if(!finalOpened){
     card.classList.add("open");
-    finalOpened = true;
+    finalOpened=true;
   } else {
-    document.getElementById("lovePopup").style.display = "flex";
+    document.getElementById("lovePopup").style.display="flex";
   }
 }
 
 function closePopup(){
-  document.getElementById("lovePopup").style.display = "none";
+  document.getElementById("lovePopup").style.display="none";
 }
 
 function createHeart(){
@@ -293,8 +279,7 @@ function createHeart(){
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),6000);
 }
-
-setInterval(createHeart,500);
+setInterval(createHeart,600);
 </script>
 
 </body>
