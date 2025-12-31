@@ -2,71 +2,300 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>💖I LOVE YOU💖</title>
+<title>Happy New Year Lipsy ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  background: black;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-#heart {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+body{
+  min-height:100vh;
+  background:linear-gradient(120deg,#ffd1dc,#ffe6f0);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
 }
 
-.word {
-  position: absolute;
-  color: #ff7eb9;
-  font-size: 18px;
-  text-shadow: 0 0 10px #fff;
-  white-space: nowrap;
-  animation: float 6s infinite ease-in-out;
+.container{
+  text-align:center;
+  padding:20px;
+  animation:fadeIn 1.5s ease;
 }
 
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+h1{
+  font-family:'Pacifico',cursive;
+  font-size:2.8rem;
+  color:#ff4f8b;
+}
+
+.name{
+  font-size:2.2rem;
+  font-weight:600;
+  color:#333;
+  margin:10px 0 20px;
+}
+
+/* 🐼 Hug Animation */
+.hug-container{
+  position:relative;
+  height:120px;
+  margin-bottom:30px;
+}
+
+.panda-left,
+.panda-right{
+  position:absolute;
+  font-size:80px;
+  top:20px;
+  animation:3s ease-in-out infinite;
+}
+
+.panda-left{
+  left:0;
+  animation-name:leftHug;
+}
+
+.panda-right{
+  right:0;
+  animation-name:rightHug;
+}
+
+.heart-hug{
+  position:absolute;
+  left:50%;
+  top:40px;
+  transform:translateX(-50%);
+  font-size:28px;
+  opacity:0;
+  animation:heartPop 3s infinite;
+}
+
+@keyframes leftHug{
+  0%,100%{transform:translateX(0);}
+  50%{transform:translateX(90px);}
+}
+
+@keyframes rightHug{
+  0%,100%{transform:translateX(0);}
+  50%{transform:translateX(-90px);}
+}
+
+@keyframes heartPop{
+  0%,100%{opacity:0;transform:translate(-50%,0) scale(0.5);}
+  50%{opacity:1;transform:translate(-50%,-10px) scale(1.2);}
+}
+
+/* Cards */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  max-width:720px;
+  margin:auto;
+}
+
+.card{
+  background:#fff;
+  border-radius:22px;
+  padding:22px;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+  transition:0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.04);
+}
+
+.panda{
+  font-size:70px;
+}
+
+.tap{
+  font-size:0.9rem;
+  color:#777;
+  margin-top:10px;
+}
+
+.wish{
+  display:none;
+  margin-top:15px;
+  font-size:1rem;
+  color:#444;
+  animation:openCard 0.6s ease;
+}
+
+.card.open .wish{display:block;}
+.card.open .tap{display:none;}
+
+@keyframes openCard{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* 💌 Popup */
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+
+.popup-content{
+  background:#fff;
+  padding:30px;
+  border-radius:25px;
+  text-align:center;
+  animation:pop 0.5s ease;
+}
+
+.popup-content h2{
+  font-family:'Pacifico',cursive;
+  color:#ff4f8b;
+  font-size:2.2rem;
+}
+
+.popup-content p{
+  margin-top:10px;
+  font-size:1.1rem;
+  color:#555;
+}
+
+.popup-content button{
+  margin-top:20px;
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff4f8b;
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+@keyframes pop{
+  from{transform:scale(0.5);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp 6s linear infinite;
+  opacity:0.8;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(0.6);opacity:0;}
+  30%{opacity:1;}
+  100%{transform:translateY(-120vh) scale(1.2);opacity:0;}
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
 
 <body>
-<div id="heart"></div>
+
+<div class="container">
+  <h1>Happy New Year ✨</h1>
+  <div class="name">Lipsy 🐼💖</div>
+
+  <!-- Panda Hug -->
+  <div class="hug-container">
+    <div class="panda-left">🐼</div>
+    <div class="panda-right">🐼</div>
+    <div class="heart-hug">❤️</div>
+  </div>
+
+  <div class="cards">
+    <div class="card" onclick="toggleCard(this)">
+      <div class="panda">🐼🎀</div>
+      <div class="tap">Tap me 💕</div>
+      <div class="wish">
+        Dear Lipsy,  
+        may this New Year bring you endless smiles 🌸
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <div class="panda">🐼✨</div>
+      <div class="tap">Tap me 💕</div>
+      <div class="wish">
+        I hope happiness follows you everywhere 💫  
+        You truly deserve it ❤️
+      </div>
+    </div>
+
+    <!-- FINAL CARD -->
+    <div class="card" onclick="showLove(this)">
+      <div class="panda">🐼❤️</div>
+      <div class="tap">Tap me 💕</div>
+      <div class="wish">
+        One last thing… tap again 💌
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 💌 Love Popup -->
+<div class="popup" id="lovePopup">
+  <div class="popup-content">
+    <h2>I love you, Lipsy ❤️</h2>
+    <p>Happy New Year 💖</p>
+    <button onclick="closePopup()">Aww 🥰</button>
+  </div>
+</div>
 
 <script>
-const heart = document.getElementById("heart");
-const text = "💖 LIPSY 💖";
-const points = [];
-
-// Heart formula
-for (let t = 0; t < Math.PI * 2; t += 0.18) {
-  const x = 16 * Math.pow(Math.sin(t), 3);
-  const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
-  points.push({ x, y });
+function toggleCard(card){
+  card.classList.toggle("open");
 }
 
-// Create text
-points.forEach((p, i) => {
-  const span = document.createElement("div");
-  span.className = "word";
-  span.textContent = text;
+let finalOpened = false;
+function showLove(card){
+  if(!finalOpened){
+    card.classList.add("open");
+    finalOpened = true;
+  } else {
+    document.getElementById("lovePopup").style.display = "flex";
+  }
+}
 
-  span.style.left = (p.x * 12 + 200) + "px";
-  span.style.top  = (p.y * 12 + 200) + "px";
-  span.style.animationDelay = (i * 0.08) + "s";
+function closePopup(){
+  document.getElementById("lovePopup").style.display = "none";
+}
 
-  heart.appendChild(span);
-});
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(Math.random()*3+3)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+
+setInterval(createHeart,500);
 </script>
+
 </body>
 </html>
